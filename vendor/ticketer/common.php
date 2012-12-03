@@ -43,6 +43,13 @@ function setting($setting) {
     return $CACHE[$setting];
 }
 
+function showErrors($errors)
+{
+    if (count($errors)) {
+        View::render('errors/_errors', ['errors' => $errors]);
+    }
+}
+
 /**
  * Fetches the translation for the specified string.
  *

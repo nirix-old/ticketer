@@ -1,0 +1,11 @@
+<?php if (count($errors)): ?>
+<div class="alert alert-error">
+	<ul>
+<?php foreach ($errors as $field => $errors): ?>
+	<?php foreach ($errors as $error): ?>
+		<li><?=l($error, $field)?></li>
+	<?php endforeach; ?>
+<?php endforeach; ?>
+	</ul>
+</div>
+<?php endif; ?>
