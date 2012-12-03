@@ -30,4 +30,14 @@ namespace Ticketer\Models;
 class Ticket extends \Radium\Database\Model
 {
     protected static $_table = 'tickets';
+
+    /**
+     * Returns the URI for the ticket.
+     *
+     * @return string
+     */
+    public function href($extra = '')
+    {
+        return "/tickets/{$this->id}{$extra}";
+    }
 }
