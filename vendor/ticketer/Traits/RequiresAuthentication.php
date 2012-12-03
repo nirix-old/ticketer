@@ -47,7 +47,7 @@ trait RequiresAuthentication
     public function requireAuthentication()
     {
         if (!LOGGEDIN) {
-            $this->render['view'] = false;
+            $this->render['action'] = false;
             View::render('users/login');
         }
     }
