@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?=setting('title')?></title>
+		<title><?=implode(' - ', array_reverse($title))?></title>
 		<?php View::render('layouts/_head'); ?>
 	</head>
 	<body>
 		<div id="wrapper">
 			<header id="header">
-				<h1><?=setting('title')?></h1>
+				<div class="width">
+					<h1><?=HTML::link(setting('title'), '/')?></h1>
+				</div>
 			</header>
 			<div id="page">
-				<?php echo $output; ?>
+				<div class="width">
+					<?php echo $output; ?>
+				</div>
 			</div>
 			<footer id="footer">
-				<?=l('copyright')?>
+				<div class="width">
+					<?=l('copyright')?>
+				</div>
 			</footer>
 		</div>
 	</body>
