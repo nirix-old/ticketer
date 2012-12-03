@@ -22,6 +22,8 @@
 namespace Ticketer\Controllers;
 
 use Radium\Output\View;
+use Radium\Database;
+
 use Ticketer\Models\User;
 
 /**
@@ -40,6 +42,7 @@ class AppController extends \Radium\Core\Controller
 
         View::$inheritFrom = APPPATH . '/views/default';
 
+        $this->db = Database::connection();
         $this->getUser();
     }
 
