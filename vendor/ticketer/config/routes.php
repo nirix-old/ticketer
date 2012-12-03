@@ -1,7 +1,7 @@
 <?php
 /*!
  * Ticketer
- * Copyright (C) 2009-2012 Jack P.
+ * Copyright (C) 2012 Jack P.
  * https://github.com/nirix
  *
  * This file is part of Ticketer.
@@ -24,4 +24,10 @@ use Radium\Http\Router;
 Router::add('/', 'Ticketer::Controllers::Tickets.index');
 Router::add('404', 'Ticketer::Controllers::Errors.notFound');
 
+// User routes
 Router::add('/(account|login|logout|register)', 'Ticketer::Controllers::Users.$1');
+Router::add('/account/password', 'Ticketer::Controllers::Users.password');
+
+// Ticket routes
+Router::add('/tickets/new', 'Ticketer::Controllers::Tickets.new');
+Router::add('/tickets/([0-9]+)', 'Ticketer::Controllers::Tickets.view/$1');
