@@ -42,9 +42,22 @@ class User extends \Radium\Database\Model
         'create' => ['beforeCreate']
     ];
 
+    /**
+     * Checks if the users password matches.
+     *
+     * @param string $password
+     *
+     * @return boolean
+     */
+    public function verifyPassword($password)
+    {
+        return crypt($password, $this->password) == $this->password;
+    }
+
     protected function beforeCreate()
     {
         $this->preparePassword();
+        $this->login_hash = sha1($this->username . time() . rand(0, 500) . sha1(microtime()));
         $this->created_at = 'NOW()';
     }
 
