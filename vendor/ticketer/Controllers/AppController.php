@@ -44,6 +44,8 @@ class AppController extends \Radium\Core\Controller
 
         $this->db = Database::connection();
         $this->getUser();
+
+        $this->title(setting('title'));
     }
 
     /**
@@ -54,6 +56,7 @@ class AppController extends \Radium\Core\Controller
     public function title($string)
     {
         $this->title[] = $string;
+        $this->set('title', $this->title);
     }
 
     /**
