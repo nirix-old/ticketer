@@ -1,7 +1,8 @@
 <?php
 /*!
  * Ticketer
- * Copyright (C) 2012 Jack Polgar
+ * Copyright (C) 2012 Jack P.
+ * https://github.com/nirix
  *
  * This file is part of Ticketer.
  *
@@ -33,6 +34,5 @@ class Errors extends AppController
      */
     public function notFoundAction()
     {
-        return "Woops";
     }
 }
