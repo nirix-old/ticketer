@@ -33,6 +33,12 @@ class Tickets extends AppController
 {
     use \Ticketer\Traits\RequiresAuthentication;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->title(l('tickets'));
+    }
+
     /**
      * Users ticket listing page.
      */
