@@ -30,4 +30,26 @@ namespace Ticketer\Models;
 class User extends \Radium\Database\Model
 {
     protected static $_table = 'users';
+
+    protected static $_validates = [
+        'username' => ['unique' => true, 'required' => true],
+        'email'    => ['unique' => true, 'required' => true],
+        'password' => ['required' => true],
+        'name'     => ['required' => true]
+    ];
+
+    protected static $_before = [
+        'create' => ['beforeCreate']
+    ];
+
+    protected function beforeCreate()
+    {
+        $this->preparePassword();
+        $this->created_at = 'NOW()';
+    }
+
+    protected function preparePassword()
+    {
+        $this->password = crypt($this->password, '$2a$10$' . sha1(microtime() . $this->username . $this->email) . '$');
+    }
 }
