@@ -1,7 +1,8 @@
 <?php
 /*!
  * Ticketer
- * Copyright (C) 2012 Jack Polgar
+ * Copyright (C) 2012 Jack P.
+ * https://github.com/nirix
  *
  * This file is part of Ticketer.
  *
@@ -31,6 +32,8 @@ use Ticketer\Models\User;
  */
 class AppController extends \Radium\Core\Controller
 {
+    private $title = [];
+
     public function __construct()
     {
         parent::__construct();
@@ -38,6 +41,16 @@ class AppController extends \Radium\Core\Controller
         View::$inheritFrom = APPPATH . '/views/default';
 
         $this->getUser();
+    }
+
+    /**
+     * Adds the string to the page title array.
+     *
+     * @param string $title
+     */
+    public function title($string)
+    {
+        $this->title[] = $string;
     }
 
     /**
