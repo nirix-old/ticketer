@@ -1,0 +1,22 @@
+<div class="login content">
+	<form action="<?=Request::requestUri()?>" method="post">
+		<div class="row">
+			<div class="span6 centered">
+				<h2><?=l('login')?></h2>
+				<div class="tabular box">
+					<div class="group">
+						<?=Form::label(l('username'), 'username')?>
+						<?=Form::text('username')?>
+					</div>
+					<div class="group">
+						<?=Form::label(l('password'), 'password')?>
+						<?=Form::password('password')?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="actions row">
+			<?=Form::submit(l('login'))?>
+		</div>
+	</form>
+</div>

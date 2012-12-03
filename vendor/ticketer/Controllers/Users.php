@@ -33,6 +33,14 @@ use Ticketer\Models\User;
 class Users extends AppController
 {
     /**
+     * Login page.
+     */
+    public function loginAction()
+    {
+
+    }
+
+    /**
      * Register page.
      */
     public function registerAction()
