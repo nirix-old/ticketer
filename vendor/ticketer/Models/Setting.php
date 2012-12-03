@@ -19,41 +19,16 @@
  * along with Ticketer. If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Ticketer\Models\Setting;
+namespace Ticketer\Models;
 
 /**
- * Returns the value of the requested setting.
- *
- * @param string $setting The setting to fetch
- *
- * @return string
+ * Setting model.
  *
  * @package Ticketer
+ * @subpackage Models
  */
-function setting($setting) {
-    static $CACHE = [];
-
-    if (isset($CACHE[$setting])) {
-        return $CACHE[$setting];
-    }
-
-    $data = Setting::find($setting);
-
-    $CACHE[$setting] = $data ? $data->value : $data;
-    return $CACHE[$setting];
-}
-
-/**
- * Fetches the translation for the specified string.
- *
- * @param string $string
- * @param array $variables
- *
- * @package Ticketer
- */
-function l($string, $variables = [])
+class Setting extends \Radium\Database\Model
 {
-    global $language;
-    return "[{$string}]";
-    //return call_user_func_array(array($language, 'translate'), func_get_args());
+    protected static $_table = 'settings';
+    protected static $_primaryKey = 'setting';
 }
