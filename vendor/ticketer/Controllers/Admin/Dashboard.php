@@ -21,6 +21,8 @@
 
 namespace Ticketer\Controllers\Admin;
 
+use Ticketer\Models\Ticket;
+
 /**
  * Dashboard controller.
  *
@@ -31,5 +33,10 @@ class DashBoard extends AppController
 {
     public function indexAction()
     {
+        $information = ['tickets' => []];
+
+        $information['tickets']['open'] = Ticket::select()->where('is_closed = ?', 0)->rowCount();
+        $information['tickets']['closed'] = Ticket::select()->where('is_closed = ?', 1)->rowCount();
+        $information['tickets']['total'] = $information['tickets']['open'] + $information['tickets']['closed'];
     }
 }
