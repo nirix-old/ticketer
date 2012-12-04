@@ -34,3 +34,7 @@ require APPPATH . "/config/routes.php";
 // Connect to the database
 use Radium\Database;
 Database::factory('default', require(dirname(__DIR__) . '/config/database.php'));
+
+// Load the translation
+use Radium\Language;
+$language = new Language(setting('language'));
