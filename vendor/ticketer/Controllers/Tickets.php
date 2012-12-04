@@ -41,11 +41,15 @@ class Tickets extends AppController
     }
 
     /**
-     * Users ticket listing page.
+     * Ticket listing page.
      */
     public function indexAction()
     {
-        $tickets = Ticket::select()->where('user_id = ?', $this->currentUser->id)->fetchAll();
+        if ($this->currentUser->group->is_staff) {
+            $tickets = Ticket::all();
+        } else {
+            $tickets = Ticket::select()->where('user_id = ?', $this->currentUser->id)->fetchAll();
+        }
         $this->set(compact('tickets'));
     }
 
