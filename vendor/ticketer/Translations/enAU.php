@@ -45,13 +45,17 @@ class enAU extends \Radium\Language\Translation
             'email'     => "Email",
 
             // Tickets
-            'tickets'    => "Tickets",
-            'new_ticket' => "New Ticket",
-            'id'         => "ID",
-            'summary'    => "Summary",
-            'status'     => "Status",
-            'created'    => "Created",
-            'updated'    => "Updated",
+            'tickets'       => "Tickets",
+            'new_ticket'    => "New Ticket",
+            'id'            => "ID",
+            'summary'       => "Summary",
+            'issue'         => "Issue",
+            'department'    => "Department",
+            'priority'      => "Priority",
+            'status'        => "Status",
+            'created'       => "Created",
+            'updated'       => "Updated",
+            'create_ticket' => "Create Ticket",
 
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or pasword",
