@@ -97,4 +97,3 @@ class AppController extends \Radium\Core\Controller
         View::set('currentUser', $this->currentUser);
     }
 }
-
