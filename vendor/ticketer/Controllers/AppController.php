@@ -71,6 +71,16 @@ class AppController extends \Radium\Core\Controller
     }
 
     /**
+     * Renders the specified view.
+     *
+     * @param string $view
+     */
+    public function render($view, $variables = [])
+    {
+        View::render($view, $variables);
+    }
+
+    /**
      * Does the checking for the session cookie and fetches the users info.
      *
      * @access private
