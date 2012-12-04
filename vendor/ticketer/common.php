@@ -43,13 +43,6 @@ function setting($setting) {
     return $CACHE[$setting];
 }
 
-function showErrors($errors)
-{
-    if (count($errors)) {
-        View::render('errors/_errors', ['errors' => $errors]);
-    }
-}
-
 /**
  * Fetches the translation for the specified string.
  *
@@ -62,4 +55,48 @@ function l($string, $variables = [])
 {
     global $language;
     return call_user_func_array([$language, 'translate'], func_get_args());
+}
+
+/**
+ * Nicely displays the passed errors from a model.
+ *
+ * @param array $errors
+ */
+function showErrors($errors)
+{
+    if (count($errors)) {
+        View::render('errors/_errors', ['errors' => $errors]);
+    }
+}
+
+/**
+ * Returns an array of priorities.
+ *
+ * @return array
+ */
+function priorities()
+{
+    return [
+        1 => l('Highest'),
+        2 => l('High'),
+        3 => l('Normal'),
+        4 => l('Low')
+    ];
+}
+
+/**
+ * Returns priorities array in the format
+ * for the Form::select() helper.
+ *
+ * @return array
+ */
+function prioritySelectOptions()
+{
+    $options = [];
+
+    foreach (priorities() as $id => $priority) {
+        $options[] = ['label' => $priority, 'value' => $id];
+    }
+
+    return $options;
 }
