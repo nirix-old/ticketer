@@ -1,15 +1,27 @@
 <div class="new_ticket content">
 	<h2 class="page_title"><?=l('new_ticket')?></h2>
 	<form action="<?=Request::requestUri()?>" method="post">
+		<?php showErrors($ticket->errors()) ?>
 		<div class="tabular box">
 			<div class="group">
-				<?=Form::label(l('summray'), 'summary')?>
+				<?=Form::label(l('summary'), 'summary')?>
 				<?=Form::text('summary', ['value' => $ticket->summary])?>
 			</div>
 			<div class="group">
-				<?=Form::label(l('issue'), 'body')?>
-				<?=Form::textarea('body', ['value' => $ticket->body])?>
+				<?=Form::label(l('department'), 'department')?>
+				<?=Form::select('department', Ticketer\Models\Department::selectOptions(), ['value' => $ticket->department_id])?>
 			</div>
+			<div class="group">
+				<?=Form::label(l('priority'), 'priority')?>
+				<?=Form::select('priority', prioritySelectOptions(), ['value' => $ticket->priority_id])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('issue'), 'issue')?>
+				<?=Form::textarea('issue', ['value' => $ticket->issue])?>
+			</div>
+		</div>
+		<div class="actions">
+			<?=Form::submit(l('create_ticket'))?>
 		</div>
 	</form>
 </div>

@@ -22,6 +22,7 @@
 namespace Ticketer\Controllers;
 
 use Radium\Http\Request;
+
 use Ticketer\Models\Ticket;
 
 /**
@@ -53,17 +54,26 @@ class Tickets extends AppController
         $this->set(compact('tickets'));
     }
 
+    /**
+     * New ticket page.
+     */
     public function newAction()
     {
         $ticket = new Ticket;
 
+        // Check if the form has been submitted
         if (Request::method() == 'post') {
             $ticket->set([
-                'summary' => Request::$post['summary']
+                'summary'       => Request::$post['summary'],
+                'issue'         => Request::$post['issue'],
+                'user_id'       => $this->currentUser->id,
+                'department_id' => Request::$post['department'],
+                'priority_id'   => Request::$post['priority']
             ]);
 
+            // Save and redirect
             if ($ticket->save()) {
-                Request::redirectTo($this->href());
+                Request::redirectTo($ticket->href());
             }
         }
 
