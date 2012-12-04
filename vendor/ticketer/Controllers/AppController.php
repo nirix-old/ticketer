@@ -106,4 +106,10 @@ class AppController extends \Radium\Core\Controller
         // Set the current_user variable in the views.
         View::set('currentUser', $this->currentUser);
     }
+
+    public function __shutdown()
+    {
+        $this->set('totalQueries', $this->db->queryCount());
+        parent::__shutdown();
+    }
 }
