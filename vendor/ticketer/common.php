@@ -61,8 +61,5 @@ function showErrors($errors)
 function l($string, $variables = [])
 {
     global $language;
-    $args = func_get_args();
-    $string = array_shift($args);
-    return "[{$string}(" . implode(',', $args) . ")]";
-    //return call_user_func_array(array($language, 'translate'), func_get_args());
+    return call_user_func_array([$language, 'translate'], func_get_args());
 }
