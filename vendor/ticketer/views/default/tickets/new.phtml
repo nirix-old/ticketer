@@ -1,0 +1,15 @@
+<div class="new_ticket content">
+	<h2 class="page_title"><?=l('new_ticket')?></h2>
+	<form action="<?=Request::requestUri()?>" method="post">
+		<div class="tabular box">
+			<div class="group">
+				<?=Form::label(l('summray'), 'summary')?>
+				<?=Form::text('summary', ['value' => $ticket->summary])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('issue'), 'body')?>
+				<?=Form::textarea('body', ['value' => $ticket->body])?>
+			</div>
+		</div>
+	</form>
+</div>

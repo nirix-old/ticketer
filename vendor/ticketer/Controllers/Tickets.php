@@ -21,6 +21,7 @@
 
 namespace Ticketer\Controllers;
 
+use Radium\Http\Request;
 use Ticketer\Models\Ticket;
 
 /**
@@ -46,5 +47,22 @@ class Tickets extends AppController
     {
         $tickets = Ticket::select()->where('user_id = ?', $this->currentUser->id)->fetchAll();
         $this->set(compact('tickets'));
+    }
+
+    public function newAction()
+    {
+        $ticket = new Ticket;
+
+        if (Request::method() == 'post') {
+            $ticket->set([
+                'summary' => Request::$post['summary']
+            ]);
+
+            if ($ticket->save()) {
+                Request::redirectTo($this->href());
+            }
+        }
+
+        $this->set(compact('ticket'));
     }
 }
