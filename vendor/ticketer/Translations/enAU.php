@@ -58,7 +58,7 @@ class enAU extends \Radium\Language\Translation
             'create_ticket' => "Create Ticket",
 
             // Errors
-            'errors.invalid_username_or_password' => "Invalid username or pasword",
+            'errors.invalid_username_or_password' => "Invalid username or password",
 
             // Validation errors
             'errors.validations.required'        => "{1} is required",
