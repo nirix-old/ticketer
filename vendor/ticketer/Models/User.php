@@ -33,8 +33,8 @@ class User extends \Radium\Database\Model
 
     protected static $_validates = [
         'username' => ['unique' => true, 'required' => true],
-        'email'    => ['unique' => true, 'required' => true],
-        'password' => ['required' => true],
+        'email'    => ['unique' => true, 'email' => true, 'required' => true],
+        'password' => ['required' => true, 'minLength' => 8],
         'name'     => ['required' => true]
     ];
 
