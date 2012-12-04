@@ -19,19 +19,17 @@
  * along with Ticketer. If not, see <http://www.gnu.org/licenses/>.
  */
 
-use Radium\Http\Router;
+namespace Ticketer\Controllers\Admin;
 
-Router::add('/', 'Ticketer::Controllers::Tickets.index');
-Router::add('404', 'Ticketer::Controllers::Errors.notFound');
-
-// User routes
-Router::add('/(account|login|logout|register)', 'Ticketer::Controllers::Users.$1');
-Router::add('/account/password', 'Ticketer::Controllers::Users.password');
-
-// Ticket routes
-Router::add('/tickets/new', 'Ticketer::Controllers::Tickets.new');
-Router::add('/tickets/([0-9]+)', 'Ticketer::Controllers::Tickets.view/$1');
-
-// Admin routes
-Router::add('/admin', 'Ticketer::Controllers::Admin::Dashboard.index');
-Router::add('/admin/settings', 'Ticketer::Controllers::Admin::Settings.index');
+/**
+ * Dashboard controller.
+ *
+ * @package Ticketer
+ * @subpackage Controllers
+ */
+class DashBoard extends AppController
+{
+    public function indexAction()
+    {
+    }
+}
