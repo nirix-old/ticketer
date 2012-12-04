@@ -21,8 +21,6 @@
 
 namespace Ticketer\Traits;
 
-use Radium\Output\View;
-
 /**
  * Requires Authentication on controllers
  * that use this trait.
@@ -48,7 +46,7 @@ trait RequiresAuthentication
     {
         if (!LOGGEDIN) {
             $this->render['action'] = false;
-            View::render('users/login');
+            $this->render('users/login');
         }
     }
 }
