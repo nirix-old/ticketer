@@ -3,6 +3,11 @@
 		<div class="row">
 			<div class="span6 centered">
 				<h2><?=l('login')?></h2>
+				<?php if (isset($error) and $error): ?>
+					<div class="alert alert-error">
+						<?=l('errors.invalid_username_or_password')?>
+					</div>
+				<?php endif; ?>
 				<div class="tabular box">
 					<div class="group">
 						<?=Form::label(l('username'), 'username')?>

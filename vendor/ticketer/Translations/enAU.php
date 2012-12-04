@@ -53,6 +53,9 @@ class enAU extends \Radium\Language\Translation
             'created'    => "Created",
             'updated'    => "Updated",
 
+            // Errors
+            'errors.invalid_username_or_password' => "Invalid username or pasword",
+
             // Validation errors
             'errors.validations.required'        => "{1} is required",
             'errors.validations.must_be_email'   => "{1} is invalid",

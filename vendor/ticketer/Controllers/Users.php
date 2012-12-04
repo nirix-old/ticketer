@@ -43,6 +43,8 @@ class Users extends AppController
                 Request::redirectTo(isset(Request::$post['redir']) ? Request::$post['redir'] : '/');
             }
         }
+
+        $this->set('error', Request::method() == 'post');
     }
 
     /**
