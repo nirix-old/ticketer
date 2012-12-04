@@ -107,6 +107,9 @@ class AppController extends \Radium\Core\Controller
         View::set('currentUser', $this->currentUser);
     }
 
+    /**
+     * Handles the applications shut down.
+     */
     public function __shutdown()
     {
         $this->set('totalQueries', $this->db->queryCount());
