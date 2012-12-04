@@ -32,10 +32,10 @@ class User extends \Radium\Database\Model
     protected static $_table = 'users';
 
     protected static $_validates = [
-        'username' => ['unique' => true, 'required' => true],
-        'email'    => ['unique' => true, 'email' => true, 'required' => true],
-        'password' => ['required' => true, 'minLength' => 8],
-        'name'     => ['required' => true]
+        'username' => ['unique', 'required'],
+        'email'    => ['unique', 'required', 'email'],
+        'password' => ['required', 'minLength' => 8],
+        'name'     => ['required']
     ];
 
     protected static $_before = [
