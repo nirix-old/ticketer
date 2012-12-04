@@ -31,6 +31,14 @@ class Ticket extends \Radium\Database\Model
 {
     protected static $_table = 'tickets';
 
+    protected static $_validates = [
+        'summary'       => ['required'],
+        'issue'         => ['required'],
+        'user_id'       => ['numeric'],
+        'department_id' => ['numeric'],
+        'is_closed'     => ['numeric']
+    ];
+
     /**
      * Returns the URI for the ticket.
      *
