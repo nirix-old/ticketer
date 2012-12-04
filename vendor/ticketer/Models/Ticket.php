@@ -39,7 +39,7 @@ class Ticket extends \Radium\Database\Model
         'is_closed'     => ['numeric']
     ];
 
-    protected static $_belongsTo = ['user', 'department'];
+    protected static $_belongsTo = ['user', 'status', 'department'];
 
     /**
      * Returns the URI for the ticket.
