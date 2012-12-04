@@ -31,6 +31,11 @@ class Department extends \Radium\Database\Model
 {
     protected static $_table = 'departments';
 
+    /**
+     * Returns an array formatted for the Form::select() helper.
+     *
+     * @return array
+     */
     public static function selectOptions()
     {
         $options = [];
