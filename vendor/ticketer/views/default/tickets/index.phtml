@@ -9,6 +9,7 @@
 				<th><?=l('id')?></th>
 				<th><?=l('summary')?></th>
 				<th><?=l('status')?></th>
+				<th><?=l('department')?></th>
 				<th><?=l('created')?></th>
 				<th><?=l('updated')?></th>
 			</tr>
@@ -18,6 +19,8 @@
 			<tr>
 				<td>#<?=$ticket->id?></td>
 				<td><?=HTML::link($ticket->summary, $ticket->href())?></td>
+				<td><?=$ticket->status->name?></td>
+				<td><?=$ticket->department->name?></td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
