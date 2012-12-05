@@ -1,0 +1,31 @@
+<div class="admin dashboard content">
+	<div class="row-fluid">
+		<div class="span6">
+			<h3><?=l('tickets')?></h3>
+			<div class="box">
+				<dl>
+					<dt><?=l('open')?></dt>
+					<dd><?=$information['tickets']['open']?></dd>
+
+					<dt><?=l('resolved')?></dt>
+					<dd><?=$information['tickets']['resolved']?></dd>
+
+					<dt><?=l('total')?></dt>
+					<dd><?=$information['tickets']['total']?></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="span6">
+			<h3><?=l('users')?></h3>
+			<div class="box">
+				<dl>
+					<dt><?=l('newest')?></dt>
+					<dd><?=$information['users']['newest']->username?></dd>
+
+					<dt><?=l('total')?></dt>
+					<dd><?=$information['users']['total']?></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
