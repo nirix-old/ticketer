@@ -22,6 +22,7 @@
 namespace Ticketer\Controllers\Admin;
 
 use Ticketer\Models\Ticket;
+use Ticketer\Models\User;
 
 /**
  * Dashboard controller.
@@ -29,14 +30,21 @@ use Ticketer\Models\Ticket;
  * @package Ticketer
  * @subpackage Controllers
  */
-class DashBoard extends AppController
+class Dashboard extends AppController
 {
     public function indexAction()
     {
         $information = ['tickets' => []];
 
+        // Tickets
         $information['tickets']['open'] = Ticket::select()->where('is_closed = ?', 0)->rowCount();
-        $information['tickets']['closed'] = Ticket::select()->where('is_closed = ?', 1)->rowCount();
-        $information['tickets']['total'] = $information['tickets']['open'] + $information['tickets']['closed'];
+        $information['tickets']['resolved'] = Ticket::select()->where('is_closed = ?', 1)->rowCount();
+        $information['tickets']['total'] = $information['tickets']['open'] + $information['tickets']['resolved'];
+
+        // Tickets
+        $information['users']['newest'] = User::select()->orderBy('id', 'DESC')->fetch();
+        $information['users']['total'] = User::select('id')->rowCount();
+
+        $this->set(compact('information'));
     }
 }
