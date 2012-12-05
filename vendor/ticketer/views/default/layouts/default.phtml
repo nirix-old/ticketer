@@ -9,6 +9,7 @@
 			<header id="header">
 				<div class="width">
 					<h1><?=HTML::link(setting('title'), '/')?></h1>
+					<?php View::render('layouts/' . (Request::matches('/admin(.*)') ? '_admin' :'') . '_nav'); ?>
 				</div>
 			</header>
 			<div id="page">
