@@ -37,12 +37,14 @@ class enAU extends \Radium\Language\Translation
             'copyright' => "Powered by Ticketer &copy; Jack P.",
 
             // Users
+            'users'     => "Users",
             'login'     => "Login",
             'register'  => "Register",
             'name'      => "Full name",
             'username'  => "Username",
             'password'  => "Password",
             'email'     => "Email",
+            'newest'    => "Newest",
 
             // Tickets
             'tickets'       => "Tickets",
@@ -56,6 +58,9 @@ class enAU extends \Radium\Language\Translation
             'created'       => "Created",
             'updated'       => "Updated",
             'create_ticket' => "Create Ticket",
+            'open'          => "Open",
+            'resolved'      => "Resolved",
+            'total'         => "Total",
 
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or password",
