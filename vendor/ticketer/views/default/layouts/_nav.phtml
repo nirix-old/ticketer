@@ -1,11 +1,12 @@
 <nav id="nav">
-	<ul class="metanav">
+	<ul>
+		<li><?=HTML::link(l('tickets'), '/')?></li>
 		<?php if (LOGGEDIN): ?>
-			<li><?=HTML::link(l('account'), '/account')?></li>
-			<li><?=HTML::link(l('logout'), '/logout')?></li>
+			<li class="account_tab"><?=HTML::link(l('account'), '/account')?></li>
+			<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
 		<?php else: ?>
-			<li><?=HTML::link(l('login'), '/login')?></li>
-			<li><?=HTML::link(l('register'), '/register')?></li>
+			<li class="login_tab"><?=HTML::link(l('login'), '/login')?></li>
+			<li class="register_tab"><?=HTML::link(l('register'), '/register')?></li>
 		<?php endif; ?>
 	</ul>
 </nav>

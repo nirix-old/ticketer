@@ -61,15 +61,48 @@ hr
   background: #3478AA
   color: #fff
   padding: 10px
+  height: 40px
 
   h1
     display: inline-block
     color: #fff
     margin: 0
+    float: left
 
     a
       color: #fff
       text-decoration: none
+
+#nav
+  float: left
+  margin-left: 15px
+  margin-top: 30px
+
+  a
+    color: #fff
+    padding: 2px 5px
+
+    &:hover
+      color: #000
+      background: #fff
+      text-decoration: none
+
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+    li
+      padding: 0
+      display: inline
+      float: left
+
+      &.account_tab
+        &:before
+          border-left: 1px solid #fff
+          content: ""
+          height: 5px
+          margin: 0 4px
 
 /* ========== Page ========== */
 #page
