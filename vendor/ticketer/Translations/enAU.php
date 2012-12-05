@@ -65,6 +65,10 @@ class enAU extends \Radium\Language\Translation
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or password",
 
+            // Page not found
+            'errors.404.title'   => "Oh noes!",
+            'errors.404.message' => "The page you're looking for doesn't seem to exist, sorry.",
+
             // Validation errors
             'errors.validations.required'        => "{1} is required",
             'errors.validations.must_be_email'   => "{1} is invalid",
