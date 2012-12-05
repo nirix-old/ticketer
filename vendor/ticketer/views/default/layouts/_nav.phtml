@@ -1,0 +1,11 @@
+<nav id="nav">
+	<ul class="metanav">
+		<?php if (LOGGEDIN): ?>
+			<li><?=HTML::link(l('account'), '/account')?></li>
+			<li><?=HTML::link(l('logout'), '/logout')?></li>
+		<?php else: ?>
+			<li><?=HTML::link(l('login'), '/login')?></li>
+			<li><?=HTML::link(l('register'), '/register')?></li>
+		<?php endif; ?>
+	</ul>
+</nav>
