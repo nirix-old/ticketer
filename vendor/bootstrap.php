@@ -28,6 +28,9 @@ require APPPATH . "/common.php";
 // Bootstrap the framework
 require SYSPATH . '/bootstrap.php';
 
+// Register the apps namespace as the default one
+Radium\Loader::registerNameSpace('Ticketer', APPPATH, true);
+
 // Load routes
 require APPPATH . "/config/routes.php";
 
