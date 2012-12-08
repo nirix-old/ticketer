@@ -21,6 +21,8 @@
 				<td><?=HTML::link($ticket->summary, $ticket->href())?></td>
 				<td><?=$ticket->status->name?></td>
 				<td><?=$ticket->department->name?></td>
+				<td><?=timeAgo($ticket->created_at)?></td>
+				<td><?=($ticket->updated_at !== null ? timeAgo($ticket->updated_at) : l('never'))?></td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>

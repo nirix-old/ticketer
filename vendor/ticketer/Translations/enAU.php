@@ -65,6 +65,7 @@ class enAU extends \Radium\Language\Translation
             'total'         => "Total",
 
             // Time
+            'never'         => "Never",
             'time'          => "Time",
             'time.ago'      => "{1} ago",
             'time.from_now' => "{1} from now",
