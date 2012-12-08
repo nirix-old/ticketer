@@ -64,6 +64,19 @@ class enAU extends \Radium\Language\Translation
             'resolved'      => "Resolved",
             'total'         => "Total",
 
+            // Time
+            'time'          => "Time",
+            'time.ago'      => "{1} ago",
+            'time.from_now' => "{1} from now",
+            'time.x_and_x'  => "{1} and {2}",
+            'time.x_second' => "{1} {plural:{1}, {second|seconds}}",
+            'time.x_minute' => "{1} {plural:{1}, {minute|minutes}}",
+            'time.x_hour'   => "{1} {plural:{1}, {hour|hours}}",
+            'time.x_day'    => "{1} {plural:{1}, {day|days}}",
+            'time.x_week'   => "{1} {plural:{1}, {week|weeks}}",
+            'time.x_month'  => "{1} {plural:{1}, {month|months}}",
+            'time.x_year'   => "{1} {plural:{1}, {year|years}}",
+
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or password",
 
