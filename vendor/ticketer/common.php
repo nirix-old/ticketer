@@ -58,6 +58,19 @@ function l($string, $variables = [])
 }
 
 /**
+ * Returns time ago in words of the given date.
+ *
+ * @param string  $original
+ * @param boolean $detailed
+ *
+ * @return string
+ */
+function timeAgo($timestamp, $detailed = false)
+{
+    return l('time.ago', Time::agoInWords($timestamp, $detailed));
+}
+
+/**
  * Nicely displays the passed errors from a model.
  *
  * @param array $errors
