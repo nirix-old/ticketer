@@ -1,0 +1,21 @@
+<div class="admin departments content">
+	<h2 class="page_title"><?=l('departments')?></h2>
+
+	<table class="list">
+		<thead>
+			<th><?=l('name')?></th>
+			<th class="actions"><?=l('actions')?></th>
+		</thead>
+		<tbody>
+		<?php foreach ($departments as $department): ?>
+			<tr>
+				<td><?=HTML::link($department->name, "/admin/departments/{$department->id}/edit")?></td>
+				<td>
+					<?=HTML::link(l('edit'), "/admin/departments/{$department->id}/edit")?>
+					<?=HTML::link(l('delete'), "/admin/departments/{$department->id}/delete", ['data-confirm' => l('confirm.delete_x', $department->name)])?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
