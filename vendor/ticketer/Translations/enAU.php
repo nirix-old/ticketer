@@ -41,7 +41,7 @@ class enAU extends \Radium\Language\Translation
             'login'     => "Login",
             'logout'    => "Logout",
             'register'  => "Register",
-            'name'      => "Full name",
+            'name'      => "Name",
             'username'  => "Username",
             'password'  => "Password",
             'email'     => "Email",
