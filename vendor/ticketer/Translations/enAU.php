@@ -62,11 +62,16 @@ class enAU extends \Radium\Language\Translation
             'status'        => "Status",
             'created'       => "Created",
             'updated'       => "Updated",
-            'create_ticket' => "Create Ticket",
             'open'          => "Open",
             'resolved'      => "Resolved",
             'total'         => "Total",
             'created_by'    => "Created by",
+
+            // Forms
+            'create_ticket' => "Create Ticket",
+            'create'        => "Create",
+            'update'        => "Update",
+            'save'          => "Save",
 
             // Time
             'never'         => "Never",
