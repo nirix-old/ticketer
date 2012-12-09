@@ -45,3 +45,8 @@ Router::add('/admin/users/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin
 Router::add('/admin/departments', 'Ticketer::Controllers::Admin::Departments.index');
 Router::add('/admin/departments/new', 'Ticketer::Controllers::Admin::Departments.new');
 Router::add('/admin/departments/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin::Departments.$2/$1');
+
+// Statuses
+Router::add('/admin/statuses', 'Ticketer::Controllers::Admin::Statuses.index');
+Router::add('/admin/statuses/new', 'Ticketer::Controllers::Admin::Statuses.new');
+Router::add('/admin/statuses/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin::Statuses.$2/$1');
