@@ -1,7 +1,10 @@
 <nav id="nav">
 	<ul>
-		<li><?=HTML::link(l('tickets'), '/')?></li>
 		<?php if (LOGGEDIN): ?>
+			<li><?=HTML::link(l('tickets'), '/')?></li>
+			<?php if ($currentUser->group->is_admin): ?>
+			<li><?=HTML::link(l('admincp'), '/admin')?></li>
+			<?php endif; ?>
 			<li class="account_tab"><?=HTML::link(l('account'), '/account')?></li>
 			<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
 		<?php else: ?>
