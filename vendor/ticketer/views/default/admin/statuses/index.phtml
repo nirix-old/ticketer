@@ -1,0 +1,24 @@
+<div class="admin statuses content">
+	<div class="page_actions">
+		<?=HTML::link(l('new_status'), '/admin/statuses/new')?>
+	</div>
+	<h2 class="page_title"><?=l('statuses')?></h2>
+
+	<table class="list">
+		<thead>
+			<th><?=l('name')?></th>
+			<th class="actions"><?=l('actions')?></th>
+		</thead>
+		<tbody>
+		<?php foreach ($statuses as $status): ?>
+			<tr>
+				<td><?=HTML::link($status->name, "/admin/statuses/{$status->id}/edit")?></td>
+				<td>
+					<?=HTML::link(l('edit'), "/admin/statuses/{$status->id}/edit")?>
+					<?=HTML::link(l('delete'), "/admin/statuses/{$status->id}/delete", ['data-confirm' => l('confirm.delete_x', $status->name)])?>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+</div>
