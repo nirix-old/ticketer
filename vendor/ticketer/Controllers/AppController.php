@@ -90,6 +90,15 @@ class AppController extends \Radium\Core\Controller
     }
 
     /**
+     * Renders the no permission view.
+     */
+    protected function showNoPermission()
+    {
+        View::render('errors/no_permission');
+        return '';
+    }
+
+    /**
      * Does the checking for the session cookie and fetches the users info.
      *
      * @access private
