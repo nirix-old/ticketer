@@ -91,4 +91,23 @@ class Statuses extends AppController
         }
     }
 
+    /**
+     * Delete status.
+     *
+     * @param integer $id
+     */
+    public function deleteAction($id)
+    {
+        $status = Status::find($id);
+
+        // Make sure the status exists
+        if (!$status) {
+            return $this->show404();
+        }
+
+        // Delete user
+        if ($status->delete()) {
+            Request::redirectTo('/admin/statuses');
+        }
+    }
 }
