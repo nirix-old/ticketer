@@ -72,6 +72,8 @@ class enAU extends \Radium\Language\Translation
             'settings'    => "Settings",
             'departments' => "Departments",
             'statuses'    => "Statuses",
+            'title'       => "Title",
+            'language'    => "Language",
 
             // Forms
             'create_ticket' => "Create Ticket",
