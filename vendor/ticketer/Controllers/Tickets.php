@@ -55,6 +55,28 @@ class Tickets extends AppController
     }
 
     /**
+     * View ticket page.
+     *
+     * @param integer $id
+     */
+    public function viewAction($id)
+    {
+        // Get ticket
+        $ticket = Ticket::find($id);
+
+        // Show 404 if no ticket is found
+        if (!$ticket) {
+            return $this->show404();
+        }
+
+        // Merge ticket and replies into a single array
+        $messages = array_merge([$ticket], $ticket->replies->fetchAll());
+
+        // Send data to view.
+        $this->set(compact('ticket', 'messages'));
+    }
+
+    /**
      * New ticket page.
      */
     public function newAction()

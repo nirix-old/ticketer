@@ -1,0 +1,13 @@
+<div class="tickets view content">
+	<h2 class="page_title"><?=$ticket->summary?></h2>
+
+	<div class="messages">
+	<?php foreach ($messages as $message): ?>
+		<div class="message">
+			<div class="user_info">
+				<?=$message->user->username?>
+			</div>
+		</div>
+	<?php endforeach; ?>
+	</div>
+</div>
