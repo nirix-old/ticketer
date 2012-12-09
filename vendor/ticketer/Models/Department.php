@@ -31,6 +31,10 @@ class Department extends \Radium\Database\Model
 {
     protected static $_table = 'departments';
 
+    protected static $_validates = [
+        'name' => ['required']
+    ];
+
     /**
      * Returns an array formatted for the Form::select() helper.
      *
