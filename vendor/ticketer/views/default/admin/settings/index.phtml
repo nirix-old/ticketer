@@ -1,0 +1,18 @@
+<div class="admin settings content">
+	<h2 class="page_title"><?=l('settings')?></h2>
+	<form action="<?=Request::requestUri()?>" method="post">
+		<div class="tabular box">
+			<div class="group">
+				<?=Form::label(l('title'), 'settings[title]')?>
+				<?=Form::text('settings[title]', ['value' => setting('title')])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('language'), 'settings[language]')?>
+				<?=Form::select('settings[language]', [], ['value' => setting('language')])?>
+			</div>
+		</div>
+		<div class="actions">
+			<?=Form::submit(l('save'))?>
+		</div>
+	</form>
+</div>
