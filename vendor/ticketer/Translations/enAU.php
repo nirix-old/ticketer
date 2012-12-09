@@ -99,6 +99,11 @@ class enAU extends \Radium\Language\Translation
             'time.x_month'  => "{1} {plural:{1}, {month|months}}",
             'time.x_year'   => "{1} {plural:{1}, {year|years}}",
 
+            // ------------------------------------------------------------------------------------
+            // Confirmations
+            'confirm.delete_x' => "Are you sure you want to delete '{1}' ?",
+
+            // ------------------------------------------------------------------------------------
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or password",
 

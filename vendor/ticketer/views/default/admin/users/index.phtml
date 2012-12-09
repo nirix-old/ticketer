@@ -14,7 +14,7 @@
 				<td><?=$user->group->name?></td>
 				<td>
 					<?=HTML::link(l('edit'), "/admin/users/{$user->id}/edit")?>
-					<?=HTML::link(l('delete'), "/admin/users/{$user->id}/delete", ['confirm' => l('confirm.delete', $user->username)])?>
+					<?=HTML::link(l('delete'), "/admin/users/{$user->id}/delete", ['data-confirm' => l('confirm.delete_x', $user->username)])?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
