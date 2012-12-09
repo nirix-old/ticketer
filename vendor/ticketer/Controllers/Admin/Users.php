@@ -70,4 +70,24 @@ class Users extends AppController
 
         $this->set(compact('user'));
     }
+
+    /**
+     * Delete user
+     *
+     * @param integer $id
+     */
+    public function deleteAction($id)
+    {
+        $user = User::find($id);
+
+        // Make sure the user exists
+        if (!$user) {
+            return $this->show404();
+        }
+
+        // Delete user
+        if ($user->delete()) {
+            Request::redirectTo('/admin/users');
+        }
+    }
 }
