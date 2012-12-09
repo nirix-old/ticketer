@@ -69,6 +69,11 @@ class Tickets extends AppController
             return $this->show404();
         }
 
+        // Make sure the user has permission to view the ticket
+        if ($ticket->user_id != $this->currentUser->id and !$this->currentUser->group->is_staff) {
+            return $this->showNoPermission();
+        }
+
         // Merge ticket and replies into a single array
         $messages = array_merge([$ticket], $ticket->replies->fetchAll());
 
