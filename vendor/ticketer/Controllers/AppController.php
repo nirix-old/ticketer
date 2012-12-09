@@ -81,6 +81,15 @@ class AppController extends \Radium\Core\Controller
     }
 
     /**
+     * Renders the 404 view.
+     */
+    protected function show404()
+    {
+        View::render('errors/not_found');
+        return '';
+    }
+
+    /**
      * Does the checking for the session cookie and fetches the users info.
      *
      * @access private
