@@ -62,7 +62,7 @@
 				<div class="properties group">
 					<div class="field">
 						<?=Form::label(l('status'), 'status')?>
-						<?=Form::select('status', Ticketer\Models\Status::selectOptions(), ['value' => $ticket->status_id])?>
+						<?=Form::select('status', Ticketer\Models\Status::selectOptions(), ['value' => 3])?>
 					</div>
 					<div class="field">
 						<?=Form::label(l('department'), 'department')?>
