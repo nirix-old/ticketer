@@ -78,6 +78,7 @@ class enAU extends \Radium\Language\Translation
             'actions'     => "Actions",
             'edit'        => "Edit",
             'delete'      => "Delete",
+            'edit_user'   => "Edit User",
 
             // Forms
             'create_ticket' => "Create Ticket",
