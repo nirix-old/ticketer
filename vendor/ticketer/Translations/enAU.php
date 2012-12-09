@@ -69,16 +69,18 @@ class enAU extends \Radium\Language\Translation
             'created_by'    => "Created by",
 
             // Admin
-            'admincp'     => "AdminCP",
-            'settings'    => "Settings",
-            'departments' => "Departments",
-            'statuses'    => "Statuses",
-            'title'       => "Title",
-            'language'    => "Language",
-            'actions'     => "Actions",
-            'edit'        => "Edit",
-            'delete'      => "Delete",
-            'edit_user'   => "Edit User",
+            'admincp'         => "AdminCP",
+            'settings'        => "Settings",
+            'departments'     => "Departments",
+            'statuses'        => "Statuses",
+            'title'           => "Title",
+            'language'        => "Language",
+            'actions'         => "Actions",
+            'edit'            => "Edit",
+            'delete'          => "Delete",
+            'edit_user'       => "Edit User",
+            'new_department'  => "New Department",
+            'edit_department' => "Edit Department",
 
             // Forms
             'create_ticket' => "Create Ticket",
