@@ -56,7 +56,27 @@ class Departments extends AppController
     }
 
     /**
-     * Save department
+     * Edit department.
+     */
+    public function editAction($id)
+    {
+        $department = Department::find($id);
+
+        // Make sure the department exists
+        if (!$department) {
+            return $this->show404();
+        }
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $this->save($department);
+        }
+
+        $this->set(compact('department'));
+    }
+
+    /**
+     * Save department.
      *
      * @param object $department
      */
