@@ -21,8 +21,6 @@
 
 namespace Ticketer\Controllers\Admin;
 
-use Ticketer\Models\Ticket;
-use Ticketer\Models\User;
 
 /**
  * Settings controller.
