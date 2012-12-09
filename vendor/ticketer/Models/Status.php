@@ -31,6 +31,10 @@ class Status extends \Radium\Database\Model
 {
     protected static $_table = 'statuses';
 
+    protected static $_validates = [
+        'name' => ['required']
+    ];
+
     /**
      * Returns an array formatted for the Form::select() helper.
      *
