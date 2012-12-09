@@ -49,6 +49,7 @@ class enAU extends \Radium\Language\Translation
             'account'   => "Account",
             'admin'     => "Admin",
             'staff'     => "Staff",
+            'group'     => "Group",
 
             // Tickets
             'tickets'       => "Tickets",
@@ -74,6 +75,9 @@ class enAU extends \Radium\Language\Translation
             'statuses'    => "Statuses",
             'title'       => "Title",
             'language'    => "Language",
+            'actions'     => "Actions",
+            'edit'        => "Edit",
+            'delete'      => "Delete",
 
             // Forms
             'create_ticket' => "Create Ticket",
