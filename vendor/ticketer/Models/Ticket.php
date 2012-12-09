@@ -40,6 +40,9 @@ class Ticket extends \Radium\Database\Model
     ];
 
     protected static $_belongsTo = ['user', 'status', 'department'];
+    protected static $_hasMany = [
+        'replies' => ['model' => 'TicketReply', 'foreignKey' => 'ticket_id']
+    ];
 
     /**
      * Returns the URI for the ticket.
