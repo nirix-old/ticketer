@@ -1,0 +1,15 @@
+<nav id="nav">
+	<ul>
+		<?php if (LOGGEDIN): ?>
+			<li><?=HTML::link(l('tickets'), '/')?></li>
+			<?php if ($currentUser->group->is_admin): ?>
+			<li><?=HTML::link(l('settings'), '/admin/settings')?></li>
+			<li><?=HTML::link(l('users'), '/admin/users')?></li>
+			<li><?=HTML::link(l('departments'), '/admin/departments')?></li>
+			<li><?=HTML::link(l('statuses'), '/admin/statuses')?></li>
+			<?php endif; ?>
+			<li class="account_tab"><?=HTML::link(l('account'), '/account')?></li>
+			<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
+		<?php endif; ?>
+	</ul>
+</nav>
