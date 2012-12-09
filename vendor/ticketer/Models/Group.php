@@ -30,4 +30,20 @@ namespace Ticketer\Models;
 class Group extends \Radium\Database\Model
 {
     protected static $_table = 'groups';
+
+    /**
+     * Returns an array formatted for the Form::select() helper.
+     *
+     * @return array
+     */
+    public static function selectOptions()
+    {
+        $options = [];
+
+        foreach (static::all() as $row) {
+            $options[] = ['label' => $row->name, 'value' => $row->id];
+        }
+
+        return $options;
+    }
 }
