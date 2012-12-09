@@ -67,6 +67,12 @@ class enAU extends \Radium\Language\Translation
             'total'         => "Total",
             'created_by'    => "Created by",
 
+            // Admin
+            'admincp'     => "AdminCP",
+            'settings'    => "Settings",
+            'departments' => "Departments",
+            'statuses'    => "Statuses",
+
             // Forms
             'create_ticket' => "Create Ticket",
             'create'        => "Create",
