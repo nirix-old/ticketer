@@ -1,7 +1,7 @@
 <nav id="nav">
 	<ul>
 		<?php if (LOGGEDIN): ?>
-			<li<?=(Request::matches('/') ? ' class="active"' :'')?>><?=HTML::link(l('tickets'), '/')?></li>
+			<li<?=(Request::matches('/(?:tickets/([1-9]+))?') ? ' class="active"' :'')?>><?=HTML::link(l('tickets'), '/')?></li>
 			<?php if ($currentUser->group->is_admin): ?>
 			<li><?=HTML::link(l('admincp'), '/admin')?></li>
 			<?php endif; ?>
