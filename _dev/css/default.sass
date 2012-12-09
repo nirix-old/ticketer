@@ -52,26 +52,24 @@ hr
   background: #3478AA
   color: #fff
   padding: 10px
-  height: 40px
 
   h1
     display: inline-block
     color: #fff
     margin: 0
-    float: left
 
     a
       color: #fff
       text-decoration: none
 
 #nav
-  float: right
-  margin-left: 15px
-  margin-top: 30px
+  margin-top: 10px
+  height: 10px
 
   a
     color: #fff
     padding: 2px 5px
+    margin-right: 4px
 
   li.active a, a:hover
     color: #000
@@ -88,12 +86,15 @@ hr
       display: inline
       float: left
 
-      &.account_tab
+      &.divider
         &:before
           border-left: 1px solid #fff
           content: ""
           height: 5px
           margin: 0 4px
+
+  .meta_nav
+    float: right
 
 /* ========== Page ========== */
 #page

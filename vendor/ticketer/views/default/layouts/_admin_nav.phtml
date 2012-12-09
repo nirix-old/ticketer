@@ -1,15 +1,22 @@
 <nav id="nav">
+	<ul class="meta_nav">
+	<?php if (LOGGEDIN): ?>
+		<li<?=(Request::matches('/(?:tickets/([1-9]+))?') ? ' class="active"' :'')?>><?=HTML::link(l('tickets'), '/')?></li>
+		<li class="<?=(Request::matches('/account') ? 'active ' :'')?>account_tab"><?=HTML::link(l('account'), '/account')?></li>
+		<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
+	<?php else: ?>
+		<li class="<?=(Request::matches('/login') ? 'active ' :'')?>login_tab"><?=HTML::link(l('login'), '/login')?></li>
+		<li class="<?=(Request::matches('/register') ? 'active ' :'')?>register_tab"><?=HTML::link(l('register'), '/register')?></li>
+	<?php endif; ?>
+	</ul>
 	<ul>
 		<?php if (LOGGEDIN): ?>
-			<li><?=HTML::link(l('tickets'), '/')?></li>
 			<?php if ($currentUser->group->is_admin): ?>
 			<li<?=(Request::matches('/admin/settings') ? ' class="active"' :'')?>><?=HTML::link(l('settings'), '/admin/settings')?></li>
 			<li<?=(Request::matches('/admin/users(.*)') ? ' class="active"' :'')?>><?=HTML::link(l('users'), '/admin/users')?></li>
 			<li<?=(Request::matches('/admin/departments(.*)') ? ' class="active"' :'')?>><?=HTML::link(l('departments'), '/admin/departments')?></li>
-			<li><?=HTML::link(l('statuses'), '/admin/statuses(.*)')?></li>
+			<li<?=(Request::matches('/admin/statuses(.*)') ? ' class="active"' :'')?>><?=HTML::link(l('statuses'), '/admin/statuses(.*)')?></li>
 			<?php endif; ?>
-			<li class="account_tab"><?=HTML::link(l('account'), '/account')?></li>
-			<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
 		<?php endif; ?>
 	</ul>
 </nav>
