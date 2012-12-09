@@ -8,7 +8,7 @@
 			</div>
 			<div class="group">
 				<?=Form::label(l('language'), 'settings[language]')?>
-				<?=Form::select('settings[language]', [], ['value' => setting('language')])?>
+				<?=Form::select('settings[language]', languageSelectOptions(), ['value' => setting('language')])?>
 			</div>
 		</div>
 		<div class="actions">
