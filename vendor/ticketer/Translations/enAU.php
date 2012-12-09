@@ -100,6 +100,11 @@ class enAU extends \Radium\Language\Translation
             'errors.404.title'   => "Oh noes!",
             'errors.404.message' => "The page you're looking for doesn't seem to exist, sorry.",
 
+            // No permission
+            'errors.no_permission.title'   => "You didn't say the magic word",
+            'errors.no_permission.message' => "You don't have permission to access this page.",
+
+
             // Validation errors
             'errors.validations.required'        => "{1} is required",
             'errors.validations.must_be_email'   => "{1} is invalid",
