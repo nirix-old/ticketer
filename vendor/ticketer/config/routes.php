@@ -32,6 +32,11 @@ Router::add('/account/password', 'Ticketer::Controllers::Users.password');
 Router::add('/tickets/new', 'Ticketer::Controllers::Tickets.new');
 Router::add('/tickets/([0-9]+)', 'Ticketer::Controllers::Tickets.view/$1');
 
+// ------------------------------------------------------------------------------
 // Admin routes
 Router::add('/admin', 'Ticketer::Controllers::Admin::Dashboard.index');
 Router::add('/admin/settings', 'Ticketer::Controllers::Admin::Settings.index');
+
+// Users
+Router::add('/admin/users', 'Ticketer::Controllers::Admin::Users.index');
+Router::add('/admin/users/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin::Users.$2/$1');
