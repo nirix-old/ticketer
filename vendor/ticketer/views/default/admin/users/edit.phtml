@@ -1,0 +1,28 @@
+<div class="admin users edit content">
+	<h2 class="page_title"><?=l('edit_user')?></h2>
+
+	<form action="<?=Request::requestUri()?>" method="post">
+		<?php showErrors($user->errors()); ?>
+		<div class="tabular box">
+			<div class="group">
+				<?=Form::label(l('name'), 'name')?>
+				<?=Form::text('name', ['value' => $user->name])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('username'), 'username')?>
+				<?=Form::text('username', ['value' => $user->username])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('email'), 'email')?>
+				<?=Form::text('email', ['value' => $user->email])?>
+			</div>
+			<div class="group">
+				<?=Form::label(l('group'), 'group')?>
+				<?=Form::select('group', Ticketer\Models\Group::selectOptions(), ['value' => $user->group_id])?>
+			</div>
+		</div>
+		<div class="actions">
+			<?=Form::submit(l('save'))?>
+		</div>
+	</form>
+</div>

@@ -32,8 +32,42 @@ use Ticketer\Models\User;
  */
 class Users extends AppController
 {
+    /**
+     * User listing.
+     */
     public function indexAction()
     {
         $this->set('users', User::all());
+    }
+
+    /**
+     * Edit user
+     *
+     * @param integer $id
+     */
+    public function editAction($id)
+    {
+        $user = User::find($id);
+
+        // Make sure the user exists
+        if (!$user) {
+            return $this->show404();
+        }
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $user->set([
+                'name'     => Request::$post['name'],
+                'username' => Request::$post['username'],
+                'email'    => Request::$post['email'],
+                'group_id' => Request::$post['group'],
+            ]);
+
+            if ($user->save()) {
+                Request::redirectTo('/admin/users');
+            }
+        }
+
+        $this->set(compact('user'));
     }
 }
