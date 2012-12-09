@@ -55,6 +55,25 @@ class Statuses extends AppController
         $this->set(compact('status'));
     }
 
+    /**
+     * Edit status.
+     */
+    public function editAction($id)
+    {
+        $status = Status::find($id);
+
+        // Make sure the status exists
+        if (!$status) {
+            return $this->show404();
+        }
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $this->save($status);
+        }
+
+        $this->set(compact('status'));
+    }
 
     /**
      * Save status.
