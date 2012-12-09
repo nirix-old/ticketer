@@ -1,15 +1,15 @@
 <nav id="nav">
 	<ul>
 		<?php if (LOGGEDIN): ?>
-			<li><?=HTML::link(l('tickets'), '/')?></li>
+			<li<?=(Request::matches('/') ? ' class="active"' :'')?>><?=HTML::link(l('tickets'), '/')?></li>
 			<?php if ($currentUser->group->is_admin): ?>
 			<li><?=HTML::link(l('admincp'), '/admin')?></li>
 			<?php endif; ?>
-			<li class="account_tab"><?=HTML::link(l('account'), '/account')?></li>
+			<li class="<?=(Request::matches('/account') ? 'active ' :'')?>account_tab"><?=HTML::link(l('account'), '/account')?></li>
 			<li class="logout_tab"><?=HTML::link(l('logout'), '/logout')?></li>
 		<?php else: ?>
-			<li class="login_tab"><?=HTML::link(l('login'), '/login')?></li>
-			<li class="register_tab"><?=HTML::link(l('register'), '/register')?></li>
+			<li class="<?=(Request::matches('/login') ? 'active ' :'')?>login_tab"><?=HTML::link(l('login'), '/login')?></li>
+			<li class="<?=(Request::matches('/register') ? 'active ' :'')?>register_tab"><?=HTML::link(l('register'), '/register')?></li>
 		<?php endif; ?>
 	</ul>
 </nav>
