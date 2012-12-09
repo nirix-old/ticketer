@@ -91,4 +91,23 @@ class Departments extends AppController
         }
     }
 
+    /**
+     * Delete department
+     *
+     * @param integer $id
+     */
+    public function deleteAction($id)
+    {
+        $department = Department::find($id);
+
+        // Make sure the department exists
+        if (!$department) {
+            return $this->show404();
+        }
+
+        // Delete user
+        if ($department->delete()) {
+            Request::redirectTo('/admin/departments');
+        }
+    }
 }
