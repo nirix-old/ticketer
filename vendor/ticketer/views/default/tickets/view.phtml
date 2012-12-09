@@ -1,11 +1,53 @@
 <div class="tickets view content">
-	<h2 class="page_title"><?=$ticket->summary?></h2>
+	<div class="ticket">
+		<h2 class="summary"><?=$ticket->summary?></h2>
+		<div class="properties">
+			<div class="property">
+				<label><?=l('department')?></label>
+				<span><?=$ticket->department->name?></span>
+			</div>
+			<div class="property">
+				<label><?=l('status')?></label>
+				<span><?=$ticket->status->name?></span>
+			</div>
+			<div class="property">
+				<label><?=l('priority')?></label>
+				<span><?=getPriorityName($ticket->priority_id)?></span>
+			</div>
+			<div class="property">
+				<label><?=l('created_by')?></label>
+				<span><?=$ticket->user->username?></span>
+			</div>
+			<div class="property">
+				<label><?=l('created')?></label>
+				<span><?=timeAgo($ticket->created_at)?></span>
+			</div>
+			<div class="property">
+				<label><?=l('updated')?></label>
+				<span><?=$ticket->updated_at ? timeAgo($ticket->updated_at) : l('never')?></span>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="issue">
+			<h3><?=l('issue')?></h3>
+			<?=$ticket->issue?>
+		</div>
+	</div>
 
 	<div class="messages">
-	<?php foreach ($messages as $message): ?>
+	<?php foreach ($ticket->replies->fetchAll() as $message): ?>
 		<div class="message">
-			<div class="user_info">
-				<?=$message->user->username?>
+			<div class="message_info">
+				<div class="created_at"><?=timeAgo($message->created_at)?></div>
+				<span class="username"><?=$message->user->username?></span>
+				<?php if ($message->user->group->is_admin): ?>
+				<span class="group admin"><?=l('admin')?></span>
+				<?php elseif ($message->user->group->is_staff): ?>
+				<span class="group staff"><?=l('staff')?></span>
+				<?php endif; ?>
+			</div>
+			<div class="body">
+				<?=isset($message->issue) ? $message->issue : $message->message?>
 			</div>
 		</div>
 	<?php endforeach; ?>
