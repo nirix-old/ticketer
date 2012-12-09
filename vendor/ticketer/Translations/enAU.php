@@ -53,6 +53,7 @@ class enAU extends \Radium\Language\Translation
             // Tickets
             'tickets'       => "Tickets",
             'new_ticket'    => "New Ticket",
+            'update_ticket' => "Update Ticket",
             'id'            => "ID",
             'summary'       => "Summary",
             'issue'         => "Issue",
