@@ -98,6 +98,19 @@ function priorities()
 }
 
 /**
+ * Returns the name of the priority.
+ *
+ * @param integer $id
+ *
+ * @return string
+ */
+function getPriorityName($id)
+{
+    $priorities = priorities();
+    return $priorities[$id];
+}
+
+/**
  * Returns priorities array in the format
  * for the Form::select() helper.
  *
