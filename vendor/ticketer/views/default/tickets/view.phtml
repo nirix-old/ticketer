@@ -52,4 +52,37 @@
 		</div>
 	<?php endforeach; ?>
 	</div>
+
+	<form action="<?=Request::requestUri()?>" method="post">
+		<section id="update_ticket">
+			<h3><?=l('update_ticket')?></h3>
+			<div class="tabular box">
+				<textarea name="message"><?=(isset($message) ? $message->message : '')?></textarea>
+				<?php if ($currentUser->group->is_staff): ?>
+				<div class="properties group">
+					<div class="field">
+						<?=Form::label(l('status'), 'status')?>
+						<?=Form::select('status', Ticketer\Models\Status::selectOptions(), ['value' => $ticket->status_id])?>
+					</div>
+					<div class="field">
+						<?=Form::label(l('department'), 'department')?>
+						<?=Form::select('department', Ticketer\Models\Department::selectOptions(), ['value' => $ticket->department_id])?>
+					</div>
+					<div class="field">
+						<?=Form::label(l('priority'), 'priority')?>
+						<?=Form::select('priority', prioritySelectOptions(), ['value' => $ticket->priority_id])?>
+					</div>
+					<div class="field">
+						<?=Form::label(l('summary'), 'summary')?>
+						<?=Form::text('summary', ['value' => $ticket->summary])?>
+					</div>
+				</div>
+				<?php endif; ?>
+				<div class="clearfix"></div>
+			</div>
+			<div class="actions">
+				<?=Form::submit(l('update'))?>
+			</div>
+		</section>
+	</form>
 </div>
