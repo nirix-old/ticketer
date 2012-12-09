@@ -39,4 +39,37 @@ class Statuses extends AppController
     {
         $this->set('statuses', Status::all());
     }
+
+    /**
+     * New status.
+     */
+    public function newAction()
+    {
+        $status = new Status;
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $this->save($status);
+        }
+
+        $this->set(compact('status'));
+    }
+
+
+    /**
+     * Save status.
+     *
+     * @param object $status
+     */
+    public function save($status)
+    {
+        $status->set([
+            'name'     => Request::$post['name'],
+        ]);
+
+        if ($status->save()) {
+            Request::redirectTo('/admin/statuses');
+        }
+    }
+
 }
