@@ -39,4 +39,36 @@ class Departments extends AppController
     {
         $this->set('departments', Department::all());
     }
+
+    /**
+     * New department.
+     */
+    public function newAction()
+    {
+        $department = new Department;
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $this->save($department);
+        }
+
+        $this->set(compact('department'));
+    }
+
+    /**
+     * Save department
+     *
+     * @param object $department
+     */
+    public function save($department)
+    {
+        $department->set([
+            'name'     => Request::$post['name'],
+        ]);
+
+        if ($department->save()) {
+            Request::redirectTo('/admin/departments');
+        }
+    }
+
 }

@@ -1,0 +1,16 @@
+<div class="admin departments new content">
+	<h2 class="page_title"><?=l('new_department')?></h2>
+
+	<form action="<?=Request::requestUri()?>" method="post">
+		<?php showErrors($department->errors()); ?>
+		<div class="tabular box">
+			<div class="group">
+				<?=Form::label(l('name'), 'name')?>
+				<?=Form::text('name', ['value' => $department->name])?>
+			</div>
+		</div>
+		<div class="actions">
+			<?=Form::submit(l('create'))?>
+		</div>
+	</form>
+</div>
