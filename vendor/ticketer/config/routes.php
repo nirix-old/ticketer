@@ -43,4 +43,5 @@ Router::add('/admin/users/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin
 
 // Departments
 Router::add('/admin/departments', 'Ticketer::Controllers::Admin::Departments.index');
+Router::add('/admin/departments/new', 'Ticketer::Controllers::Admin::Departments.new');
 Router::add('/admin/departments/([1-9]+)/(edit|delete)', 'Ticketer::Controllers::Admin::Departments.$2/$1');
