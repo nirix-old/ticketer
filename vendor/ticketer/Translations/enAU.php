@@ -47,6 +47,8 @@ class enAU extends \Radium\Language\Translation
             'email'     => "Email",
             'newest'    => "Newest",
             'account'   => "Account",
+            'admin'     => "Admin",
+            'staff'     => "Staff",
 
             // Tickets
             'tickets'       => "Tickets",
@@ -63,6 +65,7 @@ class enAU extends \Radium\Language\Translation
             'open'          => "Open",
             'resolved'      => "Resolved",
             'total'         => "Total",
+            'created_by'    => "Created by",
 
             // Time
             'never'         => "Never",
