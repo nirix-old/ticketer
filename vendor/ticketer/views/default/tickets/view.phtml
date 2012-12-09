@@ -35,19 +35,19 @@
 	</div>
 
 	<div class="messages">
-	<?php foreach ($ticket->replies->fetchAll() as $message): ?>
+	<?php foreach ($ticket->replies->fetchAll() as $reply): ?>
 		<div class="message">
 			<div class="message_info">
-				<div class="created_at"><?=timeAgo($message->created_at)?></div>
-				<span class="username"><?=$message->user->username?></span>
-				<?php if ($message->user->group->is_admin): ?>
+				<div class="created_at"><?=timeAgo($reply->created_at)?></div>
+				<span class="username"><?=$reply->user->username?></span>
+				<?php if ($reply->user->group->is_admin): ?>
 				<span class="group admin"><?=l('admin')?></span>
-				<?php elseif ($message->user->group->is_staff): ?>
+				<?php elseif ($reply->user->group->is_staff): ?>
 				<span class="group staff"><?=l('staff')?></span>
 				<?php endif; ?>
 			</div>
 			<div class="body">
-				<?=isset($message->issue) ? $message->issue : $message->message?>
+				<?=$reply->message?>
 			</div>
 		</div>
 	<?php endforeach; ?>
