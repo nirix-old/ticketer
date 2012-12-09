@@ -21,6 +21,8 @@
 
 namespace Ticketer\Controllers\Admin;
 
+use Radium\Http\Request;
+use Ticketer\Models\Setting;
 
 /**
  * Settings controller.
@@ -32,5 +34,21 @@ class Settings extends AppController
 {
     public function indexAction()
     {
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            foreach (Request::$post['settings'] as $setting => $value) {
+                // Get setting
+                $setting = Setting::find('setting', $setting);
+
+                // If found, set value and save
+                if ($setting) {
+                    $setting->value = $value;
+                    $setting->save();
+                }
+            }
+
+            // Redirect
+            Request::redirectTo('/admin/settings');
+        }
     }
 }
