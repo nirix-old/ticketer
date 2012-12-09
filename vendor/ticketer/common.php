@@ -58,6 +58,41 @@ function l($string, $variables = [])
 }
 
 /**
+ * Returns a list of available localisations formatted
+ * for the Form::select() helper.
+ *
+ * @return array
+ */
+function languageSelectOptions()
+{
+    $options = array();
+
+    foreach (scandir(APPPATH . '/Translations') as $file) {
+        if (substr($file, -4) == '.php') {
+            // Clean the name and set the class
+            $name = substr($file, 0, -4);
+
+            // Make sure the locale class
+            // isn't already loaded
+            if (!class_exists($name)) {
+                require APPPATH . '/Translations/' . $file;
+            }
+
+            // Get the info
+            $info = $name::info();
+
+            // Add it to the options
+            $options[] = array(
+                'label' => "{$info['name']} ({$info['language_short']}{$info['locale']})",
+                'value' => substr($file, 0, -4)
+            );
+        }
+    }
+
+    return $options;
+}
+
+/**
  * Returns time ago in words of the given date.
  *
  * @param string  $original
