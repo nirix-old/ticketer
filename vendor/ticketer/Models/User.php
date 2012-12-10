@@ -40,6 +40,8 @@ class User extends \Radium\Database\Model
 
     protected static $_belongsTo = ['group'];
 
+    protected static $_hasMany = ['tickets'];
+
     protected static $_before = [
         'create' => ['beforeCreate']
     ];
