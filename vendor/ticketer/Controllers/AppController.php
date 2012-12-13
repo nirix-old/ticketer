@@ -40,6 +40,7 @@ class AppController extends \Radium\Core\Controller
     {
         parent::__construct();
 
+        View::$theme = setting('theme');
         View::$inheritFrom = APPPATH . '/views/default';
 
         $this->db = Database::connection();
