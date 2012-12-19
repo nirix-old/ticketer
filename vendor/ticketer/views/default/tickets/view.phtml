@@ -51,11 +51,20 @@
 				<?=$reply->message?>
 			</div>
 			<?php endif; ?>
+			<?php if ($changes = json_decode($reply->changes, true) and count($changes)): ?>
+			<div class="changes">
+				<ul>
+				<?php foreach ($changes as $change): ?>
+					<li><?=l("tickets.changes.{$change['property']}_from_x_to_x", $change['from'], $change['to'])?></li>
+				<?php endforeach; ?>
+				</ul>
+			</div>
+			<?php endif; ?>
 		</div>
 	<?php endforeach; ?>
 	</div>
 
-	<form action="<?=Request::requestUri()?>" method="post">
+	<form action="<?=Request::base($ticket->href('update'))?>" method="post">
 		<section id="update_ticket">
 			<h3><?=l('update_ticket')?></h3>
 			<div class="tabular box">
