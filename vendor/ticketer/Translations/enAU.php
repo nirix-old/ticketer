@@ -68,6 +68,11 @@ class enAU extends \Radium\Language\Translation
             'total'         => "Total",
             'created_by'    => "Created by",
 
+            // Ticket changes
+            'tickets.changes.department_from_x_to_x' => "Changed department from <code>{1}</code> to <code>{2}</code>",
+            'tickets.changes.status_from_x_to_x' => "Changed status from <code>{1}</code> to <code>{2}</code>",
+            'tickets.changes.priority_from_x_to_x' => "Changed priority from <code>{1}</code> to <code>{2}</code>",
+
             // Admin
             'admincp'         => "AdminCP",
             'settings'        => "Settings",
