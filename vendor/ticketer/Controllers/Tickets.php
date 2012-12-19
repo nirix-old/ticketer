@@ -55,6 +55,32 @@ class Tickets extends AppController
     }
 
     /**
+     * New ticket page.
+     */
+    public function newAction()
+    {
+        $ticket = new Ticket;
+
+        // Check if the form has been submitted
+        if (Request::method() == 'post') {
+            $ticket->set([
+                'summary'       => Request::$post['summary'],
+                'issue'         => Request::$post['issue'],
+                'user_id'       => $this->currentUser->id,
+                'department_id' => Request::$post['department'],
+                'priority_id'   => Request::$post['priority']
+            ]);
+
+            // Save and redirect
+            if ($ticket->save()) {
+                Request::redirectTo($ticket->href());
+            }
+        }
+
+        $this->set(compact('ticket'));
+    }
+
+    /**
      * View ticket page.
      *
      * @param integer $id
@@ -79,31 +105,5 @@ class Tickets extends AppController
 
         // Send data to view.
         $this->set(compact('ticket', 'messages'));
-    }
-
-    /**
-     * New ticket page.
-     */
-    public function newAction()
-    {
-        $ticket = new Ticket;
-
-        // Check if the form has been submitted
-        if (Request::method() == 'post') {
-            $ticket->set([
-                'summary'       => Request::$post['summary'],
-                'issue'         => Request::$post['issue'],
-                'user_id'       => $this->currentUser->id,
-                'department_id' => Request::$post['department'],
-                'priority_id'   => Request::$post['priority']
-            ]);
-
-            // Save and redirect
-            if ($ticket->save()) {
-                Request::redirectTo($ticket->href());
-            }
-        }
-
-        $this->set(compact('ticket'));
     }
 }
