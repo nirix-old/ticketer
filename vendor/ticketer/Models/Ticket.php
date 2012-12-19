@@ -49,8 +49,9 @@ class Ticket extends \Radium\Database\Model
      *
      * @return string
      */
-    public function href($extra = '')
+    public function href($uri = null)
     {
-        return "/tickets/{$this->id}{$extra}";
+        return "/tickets/{$this->id}" . ($uri !== null ? "/" . trim($uri, '/') : '');
+    }
     }
 }
