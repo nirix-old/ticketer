@@ -46,9 +46,11 @@
 				<span class="group staff"><?=l('staff')?></span>
 				<?php endif; ?>
 			</div>
+			<?php if ($reply->message != ''): ?>
 			<div class="body">
 				<?=$reply->message?>
 			</div>
+			<?php endif; ?>
 		</div>
 	<?php endforeach; ?>
 	</div>
