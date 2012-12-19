@@ -22,8 +22,12 @@
 namespace Ticketer\Controllers;
 
 use Radium\Http\Request;
+use Radium\Util\Inflector;
 
 use Ticketer\Models\Ticket;
+use Ticketer\Models\TicketReply;
+use Ticketer\Models\Department;
+use Ticketer\Models\Status;
 
 /**
  * Ticket controller.
@@ -105,5 +109,70 @@ class Tickets extends AppController
 
         // Send data to view.
         $this->set(compact('ticket', 'messages'));
+    }
+
+    /**
+     * Update ticket.
+     *
+     * @param integer $id
+     */
+    public function updateAction($id)
+    {
+        if (Request::method() != 'post') {
+            Request::redirectTo('/');
+        }
+
+        // Get the ticket
+        $ticket = Ticket::find($id);
+
+        // Ticket changes
+        $changes = [];
+        foreach (['department', 'status', 'priority'] as $property) {
+            if ($ticket->{$property . '_id'} != Request::$post[$property]) {
+                $change = ['property' => $property];
+
+                switch ($property) {
+                    case 'department':
+                    case 'status':
+                        $class = "\\Ticketer\\Models\\" . Inflector::classify($property);
+                        $change['from'] = $class::find($ticket->{"{$property}_id"})->name;
+                        $change['to'] = $class::find(Request::$post[$property])->name;
+                        break;
+
+                    case 'priority':
+                        $change['from'] = getPriorityName($ticket->priority_id);
+                        $change['to'] = getPriorityName(Request::$post['priority']);
+                        break;
+                }
+
+                $changes[] = $change;
+            }
+        }
+
+        // Update ticket properties
+        $ticket->set([
+            'department_id' => Request::$post['department'],
+            'status_id'     => Request::$post['status'],
+            'priority_id'   => Request::$post['priority']
+        ]);
+
+        // Ticket reply
+        $reply = new TicketReply([
+            'message'   => Request::$post['message'],
+            'user_id'   => $this->currentUser->id,
+            'ticket_id' => $ticket->id,
+            'changes'   => json_encode($changes)
+        ]);
+
+        if (count($changes) or Request::$post['message'] != '') {
+            if ($reply->save() and $ticket->save()) {
+                Request::redirectTo($ticket->href());
+            }
+        } else {
+            Request::redirectTo($ticket->href());
+        }
+
+        $this->set(compact('ticket', 'reply'));
+        $this->render['view'] = 'tickets/view';
     }
 }
