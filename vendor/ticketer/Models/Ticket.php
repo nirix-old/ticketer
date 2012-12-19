@@ -53,5 +53,17 @@ class Ticket extends \Radium\Database\Model
     {
         return "/tickets/{$this->id}" . ($uri !== null ? "/" . trim($uri, '/') : '');
     }
+
+    /**
+     * Save ticket
+     */
+    public function save()
+    {
+        // Set is_closed value based off status
+        if ($status = Status::find($this->status_id)) {
+            $this->is_closed = $status->is_closed;
+        }
+
+        return parent::save();
     }
 }
