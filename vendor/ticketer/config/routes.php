@@ -31,6 +31,7 @@ Router::add('/account/password', 'Ticketer::Controllers::Users.password');
 // Ticket routes
 Router::add('/tickets/new', 'Ticketer::Controllers::Tickets.new');
 Router::add('/tickets/([0-9]+)', 'Ticketer::Controllers::Tickets.view/$1');
+Router::add('/tickets/([0-9]+)/update', 'Ticketer::Controllers::Tickets.update/$1');
 
 // ------------------------------------------------------------------------------
 // Admin routes
