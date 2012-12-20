@@ -1,0 +1,9 @@
+<div class="account content">
+	<h2 class="page_title"><?=l('account')?></h2>
+</div>
+<div class="tabs">
+	<ul>
+		<li<?=(Request::matches('/account') ? ' class="active"' :'')?>><?=HTML::link(l('information'), '/account')?></li>
+		<li<?=(Request::matches('/account/password') ? ' class="active"' :'')?>><?=HTML::link(l('password'), '/account/password')?></li>
+	</ul>
+</div>

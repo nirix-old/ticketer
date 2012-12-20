@@ -1,0 +1,23 @@
+<?php View::render('account/_header'); ?>
+<div class="account content">
+	<div class="row">
+		<div class="span6 centered">
+			<?php showErrors($user->errors()); ?>
+			<form action="<?=Request::requestUri()?>" method="post">
+				<div class="tabular box">
+					<div class="group">
+						<?=Form::label(l('name'), 'name')?>
+						<?=Form::text('name', ['value' => $user->name])?>
+					</div>
+					<div class="group">
+						<?=Form::label(l('email'), 'email')?>
+						<?=Form::text('email', ['value' => $user->email])?>
+					</div>
+				</div>
+				<div class="actions">
+					<?=Form::submit(l('save'))?>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
