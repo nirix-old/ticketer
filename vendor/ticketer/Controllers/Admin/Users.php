@@ -58,7 +58,6 @@ class Users extends AppController
         if (Request::method() == 'post') {
             $user->set([
                 'name'     => Request::$post['name'],
-                'username' => Request::$post['username'],
                 'email'    => Request::$post['email'],
                 'group_id' => Request::$post['group'],
             ]);

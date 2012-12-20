@@ -16,7 +16,7 @@
 			</div>
 			<div class="property">
 				<label><?=l('created_by')?></label>
-				<span class="value"><?=$ticket->user->username?></span>
+				<span class="value"><?=$ticket->user->name?></span>
 			</div>
 			<div class="property">
 				<label><?=l('created')?></label>
@@ -39,7 +39,7 @@
 		<div class="message">
 			<div class="message_info">
 				<div class="created_at"><?=timeAgo($reply->created_at)?></div>
-				<span class="username"><?=$reply->user->username?></span>
+				<span class="username"><?=$reply->user->name?></span>
 				<?php if ($reply->user->group->is_admin): ?>
 				<span class="group admin"><?=l('admin')?></span>
 				<?php elseif ($reply->user->group->is_staff): ?>

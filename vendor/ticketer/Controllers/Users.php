@@ -38,7 +38,7 @@ class Users extends AppController
     public function loginAction()
     {
         if (Request::method() == 'post') {
-            if ($user = User::find('username', Request::$post['username']) and $user->verifyPassword(Request::$post['password'])) {
+            if ($user = User::find('email', Request::$post['email']) and $user->verifyPassword(Request::$post['password'])) {
                 setcookie('ticketer', $user->login_hash, time() + (2 * 4 * 7 * 24 * 60 * 60 * 60), '/');
                 Request::redirectTo(isset(Request::$post['redir']) ? Request::$post['redir'] : '/');
             }
@@ -56,9 +56,8 @@ class Users extends AppController
 
         if (Request::method() == 'post') {
             $user->set([
-                'username' => Request::$post['username'],
-                'password' => Request::$post['password'],
                 'name'     => Request::$post['name'],
+                'password' => Request::$post['password'],
                 'email'    => Request::$post['email'],
             ]);
 

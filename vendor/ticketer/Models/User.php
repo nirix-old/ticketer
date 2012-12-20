@@ -32,10 +32,9 @@ class User extends \Radium\Database\Model
     protected static $_table = 'users';
 
     protected static $_validates = [
-        'username' => ['unique', 'required'],
+        'name'     => ['required'],
         'email'    => ['unique', 'required', 'email'],
-        'password' => ['required', 'minLength' => 8],
-        'name'     => ['required']
+        'password' => ['required', 'minLength' => 8]
     ];
 
     protected static $_belongsTo = ['group'];
@@ -61,12 +60,12 @@ class User extends \Radium\Database\Model
     protected function beforeCreate()
     {
         $this->preparePassword();
-        $this->login_hash = sha1($this->username . time() . rand(0, 500) . sha1(microtime()));
+        $this->login_hash = sha1($this->email . time() . rand(0, 500) . sha1(microtime()));
         $this->created_at = 'NOW()';
     }
 
     protected function preparePassword()
     {
-        $this->password = crypt($this->password, '$2a$10$' . sha1(microtime() . $this->username . $this->email) . '$');
+        $this->password = crypt($this->password, '$2a$10$' . sha1(microtime() . $this->email) . '$');
     }
 }

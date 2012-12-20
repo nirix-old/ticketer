@@ -3,18 +3,18 @@
 
 	<table class="list">
 		<thead>
-			<th><?=l('username')?></th>
+			<th><?=l('name')?></th>
 			<th class="group"><?=l('group')?></th>
 			<th class="actions"><?=l('actions')?></th>
 		</thead>
 		<tbody>
 		<?php foreach ($users as $user): ?>
 			<tr>
-				<td><?=HTML::link($user->username, "/admin/users/{$user->id}/edit")?></td>
+				<td><?=HTML::link($user->name, "/admin/users/{$user->id}/edit")?></td>
 				<td><?=$user->group->name?></td>
 				<td>
 					<?=HTML::link(l('edit'), "/admin/users/{$user->id}/edit")?>
-					<?=HTML::link(l('delete'), "/admin/users/{$user->id}/delete", ['data-confirm' => l('confirm.delete_x', $user->username)])?>
+					<?=HTML::link(l('delete'), "/admin/users/{$user->id}/delete", ['data-confirm' => l('confirm.delete_x', $user->name)])?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
