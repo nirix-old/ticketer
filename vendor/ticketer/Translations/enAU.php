@@ -129,7 +129,8 @@ class enAU extends \Radium\Language\Translation
             // Validation errors
             'errors.validations.required'        => "{1} is required",
             'errors.validations.must_be_email'   => "{1} is invalid",
-            'errors.validations.field_too_short' => "{1} is too short"
+            'errors.validations.field_too_short' => "{1} is too short",
+            'errors.validations.already_in_use'  => "{1} is already in use"
         ];
     }
 }
