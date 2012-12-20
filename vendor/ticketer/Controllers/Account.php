@@ -59,6 +59,13 @@ class Account extends AppController
         }
     }
 
+    /**
+     * Password page.
+     */
+    public function passwordAction()
+    {
+    }
+
     public function __shutdown()
     {
         // Send user to view
