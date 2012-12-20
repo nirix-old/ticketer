@@ -44,6 +44,19 @@ class Account extends AppController
      */
     public function indexAction()
     {
+        // Check if form has been submitted
+        if (Request::method() == 'post') {
+            // Update user data
+            $this->user->set([
+                'name'  => Request::$post['name'],
+                'email' => Request::$post['email'],
+            ]);
+
+            // Save and redirect
+            if ($this->user->save()) {
+                Request::redirectTo('/account');
+            }
+        }
     }
 
     public function __shutdown()
