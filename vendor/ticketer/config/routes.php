@@ -25,8 +25,9 @@ Router::add('/', 'Ticketer::Controllers::Tickets.index');
 Router::add('404', 'Ticketer::Controllers::Errors.notFound');
 
 // User routes
-Router::add('/(account|login|logout|register)', 'Ticketer::Controllers::Users.$1');
-Router::add('/account/password', 'Ticketer::Controllers::Users.password');
+Router::add('/(login|logout|register)', 'Ticketer::Controllers::Users.$1');
+Router::add('/account', 'Ticketer::Controllers::Account.index');
+Router::add('/account/password', 'Ticketer::Controllers::Account.password');
 
 // Ticket routes
 Router::add('/tickets/new', 'Ticketer::Controllers::Tickets.new');
