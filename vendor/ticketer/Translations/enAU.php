@@ -51,6 +51,11 @@ class enAU extends \Radium\Language\Translation
             'staff'     => "Staff",
             'group'     => "Group",
 
+            // Account Page
+            'information'      => "Information",
+            'current_password' => "Current Password",
+            'new_password'     => "New Password",
+
             // Tickets
             'tickets'       => "Tickets",
             'new_ticket'    => "New Ticket",
@@ -116,6 +121,7 @@ class enAU extends \Radium\Language\Translation
             // ------------------------------------------------------------------------------------
             // Errors
             'errors.invalid_username_or_password' => "Invalid username or password",
+            'errors.current_password_is_invalid'  => "Current password is invalid",
 
             // Page not found
             'errors.404.title'   => "Oh noes!",
@@ -124,7 +130,6 @@ class enAU extends \Radium\Language\Translation
             // No permission
             'errors.no_permission.title'   => "You didn't say the magic word",
             'errors.no_permission.message' => "You don't have permission to access this page.",
-
 
             // Validation errors
             'errors.validations.required'        => "{1} is required",
