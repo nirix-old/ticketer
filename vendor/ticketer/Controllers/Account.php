@@ -66,6 +66,21 @@ class Account extends AppController
      */
     public function passwordAction()
     {
+        // Check if form has been submitted
+        if (Request::method() == 'post') {
+            // Verify current password
+            if ($this->user->verifyPassword(Request::$post['current_password'])) {
+                // Update users password
+                $this->user->updatePassword(Request::$post['new_password']);
+
+                // Save and redirect
+                if ($this->user->save()) {
+                    Request::redirectTo('/account/password');
+                }
+            } else {
+                $this->user->addError('password', l('errors.current_password_is_invalid'));
+            }
+        }
     }
 
     public function __shutdown()
