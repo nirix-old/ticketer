@@ -57,6 +57,32 @@ class User extends \Radium\Database\Model
         return crypt($password, $this->password) == $this->password;
     }
 
+    /**
+     * Updates the users password.
+     *
+     * @param string $password
+     *
+     * @return boolean
+     */
+    public function updatePassword($password)
+    {
+        // Set password for validation
+        $this->password = $password;
+
+        // Validate
+        if ($this->validates()) {
+            // Crypt password
+            $this->password = crypt($password, '$2a$10$' . sha1(microtime() . $this->email) . '$');
+
+            // Set new login hash
+            $this->login_hash = sha1($this->email . time() . rand(0, 500) . sha1(microtime()));
+
+            return true;
+        }
+
+        return false;
+    }
+
     protected function beforeCreate()
     {
         $this->preparePassword();
