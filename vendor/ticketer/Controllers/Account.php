@@ -31,6 +31,8 @@ use Radium\Http\Request;
  */
 class Account extends AppController
 {
+    use \Ticketer\Traits\RequiresAuthentication;
+
     public function __construct()
     {
         parent::__construct();
