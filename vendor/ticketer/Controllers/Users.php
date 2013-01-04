@@ -68,4 +68,13 @@ class Users extends AppController
 
         $this->set(compact('user'));
     }
+
+    /**
+     * Logout page.
+     */
+    public function logoutAction()
+    {
+        setcookie('ticketer', NULL, time(), '/');
+        Request::redirectTo('/');
+    }
 }
